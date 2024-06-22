@@ -10,6 +10,7 @@
             background-color: #0D2213;
             text-align: center;
             margin: 20px;
+            color: white; /* Ensuring text is visible on dark background */
         }
 
         header {
@@ -34,14 +35,24 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        .link-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: white; /* Ensuring bullet is white */
+        }
     </style>
 </head>
 <body>
     <section style="margin-bottom: 15px;">
         <h1 style="font-size: 2.5em; color: white; text-align: center; font-family: serif;">Aidan Maldonado</h1>
-         <a href="resume.pdf" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff">Resume</a>
-            •    
-         <a href="cv.pdf" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff">CV</a>
+        <div class="link-container">
+            <a href="resume.pdf" target="_blank" style="font-size: 0.9em; color: #b8a8ff;">Resume</a>
+            <span>•</span>
+            <a href="cv.pdf" target="_blank" style="font-size: 0.9em; color: #b8a8ff;">CV</a>
+        </div>
     </section>
     
     <header>  
@@ -49,12 +60,12 @@
     </header>
 
     <section style="margin-bottom: -20px;">
-        <p style="font-size: 1.0em; color: white;">Github</p>
+        <p style="font-size: 1.0em;">Github</p>
         <a href="https://github.com/aidanjmaldonado" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff;">aidanjmaldonado</a>
     </section>
 
     <section style="margin-bottom: -30px;">
-        <p style="font-size: 1.-em; color: white;">MPLearn ⸺ Machine Learning Library</p>
+        <p style="font-size: 1.-em;">MPLearn ⸺ Machine Learning Library</p>
         <a href="https://github.com/aidanjmaldonado/MPLearn" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff;">Repository</a>
     </section>
     
@@ -71,7 +82,7 @@
     </header>
 
     <section style="margin-bottom: 5px;">
-        <p style="font-size: 1.0em; color: white;">Welcome to my photo gallery. Explore my work below:</p>
+        <p style="font-size: 1.0em;">Welcome to my photo gallery. Explore my work below:</p>
         <a href="https://aidanjmaldonado.github.io/aidanjmphotos.github.io/" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff;">Visit My Photo Site</a>
     </section>
 
@@ -80,11 +91,11 @@
     </header>
     
     <section style="margin-bottom: -5px;">
-        <p style="font-size: 1.0em; color: white;">Research</p>
+        <p style="font-size: 1.0em;">Research</p>
     </section>
 
     <section style="margin-bottom: -5px;">
-        <p style="font-size: 1.0em; color: white;">Coursework</p>
+        <p style="font-size: 1.0em;">Coursework</p>
     </section>
 
     <header>
@@ -92,7 +103,7 @@
     </header>
 
     <section style="margin-bottom: 5px;">
-        <p style="font-size: 1.0em; color: white;">Presentation on Brain-Inspired Neural Networks</p>
+        <p style="font-size: 1.0em;">Presentation on Brain-Inspired Neural Networks</p>
         <a href="https://www.canva.com/design/DAF_WKAb2Ew/FVC7rcw-4gyvz7pN7LEG8w/view?utm_content=DAF_WKAb2Ew&amp;utm_campaign=designshare&amp;utm_medium=link&amp;utm_source=editor" target="_blank" style="margin: 0; font-size: 0.9em; color: #b8a8ff;">Backpropagation Using Spikes Presentation</a>
     </section>
     
