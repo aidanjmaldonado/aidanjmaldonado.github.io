@@ -1,0 +1,158 @@
+
+body {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #140d22ff; OLD */
+    background-color: #0e0e0eff;
+}
+
+#top_bar_container {
+
+    /* Define the Bounding region for the Container */
+    z-index: 5;                                                     /* The container must always be the top visiible layer */
+    height: 40px;                                                   /* The height of the Top Bar container */
+    position: sticky;                                               /* Ensures the container is stuck to the top of the screen when scrolling */
+    top: 0;                                                         /* The sticky-top is set at  the top of screen */
+    background-color: #0097a7ff;                                  /* Light blue background color */
+
+    /* Positioning of contents*/
+    display: flex;                                                  /* Flexbox to store every Dropdown */
+    flex-direction: row;                                            /* Row setting rather than column */
+    flex-wrap: nowrap;                                              /* Don't wrap if the screen gets squished */
+    align-items: center;                                            /* Align vertically center */
+    justify-content: space-between;                                 /* Align horizonetally center */
+
+}
+
+.top_bar {
+
+    /* Styling */
+    z-index: 5;                                                     /* This layer will stay on the top visible layer */
+    height: 100%;                                                   /* Height is the same is the Container this button resides in */
+    background-color: transparent;                                  /* Button Background Color: Transparent */
+    border-color: transparent;                                      /* Transparent borders for all top_bar elements */
+    color: white;                                                 /* Text Color */
+    text-align: center;
+}
+
+    #name {
+        font-size: 1.75em;
+        width: 270px;
+    }
+
+    #name:hover {
+        z-index: 5;
+        background-color: rgb(129, 233, 245);
+        color: rgb(7, 66, 72);
+    }
+
+    #dropdowns {
+
+        /* Defining the Boudning region for the Container */
+        margin-right: 40px;
+        height: 100%;
+
+        /* Positioning of contents */
+        display: flex;                                                  /* Flexbox to store every Dropdown */
+        flex-direction: row;                                            /* Row setting rather than column */
+        flex-wrap: nowrap;                                              /* Don't wrap if the screen gets squished */
+        align-items: center;                                            /* Align vertically center */
+        justify-content: space-between;                                 /* Align horizonetally center */
+    }
+
+    .dropdown_button {
+         
+        /* Styling */
+        width: 90px;
+        height: 100%;
+        background-color: inherit;
+        border-color: inherit;
+        color: inherit;
+        font-size: 1em;
+    }
+
+    .dropdown_button:hover {
+        z-index: 5;
+        background-color: rgb(129, 233, 245);
+        color: rgb(7, 66, 72);
+    }
+
+
+#bg_image_container {
+    /* background-color: green; */
+    height: 472px;
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+    z-index: -1;
+}
+
+#bg_void {
+    z-index: 0;
+    /* background-color: darkslateblue; */
+    height: 512px;
+
+}
+
+
+#bg_image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#main_buttons_container {
+    /* Begins at 40 + 520 = 560px from the top, travels to 40px*/
+    /* Travel total is 560 - 40 = 520 px, reshape height 140->40 */
+    /* Change 520/100 = 5.2/1 */
+
+    /* Define the Bounding region for the Container */
+    z-index: 5;                                                     /* The container must always be the top visiible layer */
+    height: 70px;                                                   /* The height of the Button container */
+    position: sticky;                                               /* Ensures the container is stuck to the top of the screen when scrolling */
+    top: 40px;                                                      /* The sticky-top is set at 40px from the top of screen */
+
+    /* Positioning of contents*/
+    display: flex;                                                  /* Flexbox to store every Button */
+    flex-direction: row;                                            /* Row setting rather than column */
+    flex-wrap: nowrap;                                              /* Don't wrap if the screen gets squished */
+    align-items: center;                                            /* Align vertically center */
+    justify-content: center;                                        /* Align horizonetally center */
+
+}
+
+.main_button {
+
+    /* Styling */
+    z-index: 5;                                                     /* This Button will stay on the top visible layer */
+    height: 100%;                                                   /* Height is the same is the Container this button resides in */
+    width: 18.01vw;                                                 /* The width is fixed to be proportional to the viewport width */
+    background-color: #ece3d9ff;                                  /* Button Background Color: Tofu */
+    border: solid 3px;                                              /* Solid Border of Width = 3px */
+    border-color: #ddd3c7ff #bda58bff #998064ff #c7b8a6ff;  /* Top, Right, Bottom, Left*/
+    color: #0e0e0eff; /* Text Color */
+    font-size: 1.2em; /* Font-Size relative to Button Height? */
+
+    /* Positioning */
+    margin: 1px; /* Add a margin of 10px between each Button*/
+
+    /* Animations */
+    transition: transform 0.4s ease-out;
+}
+
+.main_button:hover {
+    background-color: rgb(244, 237, 229);
+    box-shadow: 0px 2px 5px 0px black;
+    /* color: black; */
+}
+
+.main_button:active {
+    /* background-color: #ffeb8cff; */
+}
