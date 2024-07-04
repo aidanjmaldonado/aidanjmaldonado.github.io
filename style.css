@@ -47,7 +47,7 @@ body {
         color: rgb(7, 66, 72);
     }
 
-    #dropdowns {
+    #dropdown_buttons {
 
         /* Defining the Boudning region for the Container */
         margin-right: 40px;
@@ -61,22 +61,50 @@ body {
         justify-content: space-between;                                 /* Align horizonetally center */
     }
 
-    .dropdown_button {
-         
-        /* Styling */
-        width: 90px;
-        height: 100%;
-        background-color: inherit;
-        border-color: inherit;
-        color: inherit;
-        font-size: 1em;
-    }
+        .dropdown {
+            
+            /* Styling */
+            width: 90px;
+            height: 100%;
+            background-color: inherit;
+            border-color: inherit;
+            color: inherit;
+            font-size: 1em;
 
-    .dropdown_button:hover {
-        z-index: 5;
-        background-color: rgb(129, 233, 245);
-        color: rgb(7, 66, 72);
-    }
+            /* Positioning of contents */
+            display: flex;                                                  /* Flexbox to store every Dropdown */
+            align-items: center;                                            /* Align vertically center */
+            justify-content: center;   
+        }
+
+            .dropdown:hover {
+                z-index: 5;
+                background-color: rgb(129, 233, 245);
+                color: rgb(7, 66, 72);
+            }
+
+            .main_button:hover .skill_dropdown_content {
+                display: block;
+            }
+
+
+
+.skill_dropdown_content {
+        /* Positioning of contents*/
+    position: absolute;
+    display:none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* .skill_dropdown { */
+    /* display: flexbox; */
+    /* position: relative; */
+    /* background-color: transparent; */
+/* } */
 
 
 #bg_image_container {
@@ -134,7 +162,7 @@ body {
     z-index: 5;                                                     /* This Button will stay on the top visible layer */
     height: 100%;                                                   /* Height is the same is the Container this button resides in */
     width: 18.01vw;                                                 /* The width is fixed to be proportional to the viewport width */
-    background-color: #ece3d9ff;                                  /* Button Background Color: Tofu */
+    background-color: #ece3d9ff;                                  /* Button Background Color: Tofu */ 
     border: solid 3px;                                              /* Solid Border of Width = 3px */
     border-color: #ddd3c7ff #bda58bff #998064ff #c7b8a6ff;  /* Top, Right, Bottom, Left*/
     color: #0e0e0eff; /* Text Color */
@@ -143,8 +171,6 @@ body {
     /* Positioning */
     margin: 1px; /* Add a margin of 10px between each Button*/
 
-    /* Animations */
-    transition: transform 0.4s ease-out;
 }
 
 .main_button:hover {
@@ -154,5 +180,5 @@ body {
 }
 
 .main_button:active {
-    /* background-color: #ffeb8cff; */
+    background-color: #ffeb8cff;
 }
