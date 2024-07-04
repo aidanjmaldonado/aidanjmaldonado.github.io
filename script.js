@@ -32,7 +32,6 @@ window.onload = e => {
     bg_image.src="bg-images/sluggo.png";
 }
 
-var current_animation;
 function changeBgImageClick(button_type) {
     switch(button_type) {
         case projects:
