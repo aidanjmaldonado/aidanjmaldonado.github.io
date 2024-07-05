@@ -110,9 +110,9 @@ function extend(top_type) {
             }, {
                 easing: `cubic-bezier(0.45, 1.5, 0.25, 1)`,
                 fill: "forwards",
-                duration: 150
+                duration: 400
             });
-        }, i * 45);
+        }, i * 50);
     }
 }
 
@@ -145,7 +145,7 @@ function retract(top_type) {
                 fill: "forwards",
                 duration: 150
             });
-        }, (dropdown_buttons.length - i) * 30);
+        }, (dropdown_buttons.length - i) * 50);
     }
 }
 

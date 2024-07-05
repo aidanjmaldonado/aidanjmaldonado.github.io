@@ -78,8 +78,9 @@ body {
             border-color: none;
 
             /* Positioning */
-            display: flex;
+            display: grid;
             align-content: center;
+            justify-self: center;
 
         }   
             .dropdown_button {
@@ -90,7 +91,8 @@ body {
                 border: none;
                 color: inherit;
                 font-size: inherit;
-                align-content: right;
+                align-content: center;
+                justify-content: space-evenly;
                 cursor: pointer;
 
                 /* Positioning */
@@ -113,9 +115,9 @@ body {
                 /* Positioning of contents */
                 z-index: 3;
                 position: absolute;
-                justify-content: right;
-                align-self: end;
-                margin: 0;
+                justify-self: center;
+                align-self: center;
+                /* margin-right: 100px; */
                 padding: 0;
                 display: none;
             }
