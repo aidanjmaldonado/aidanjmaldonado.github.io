@@ -4,10 +4,14 @@ const name_button = document.getElementById('name');
 const dropdown_container_buttons = document.getElementsByClassName("dropdown_button");
 const skills = document.getElementById('skill_button');
 const skill_dropdown = document.getElementById('skill_dropdown');
+const skill_dropdown_buttons = document.getElementsByClassName('below_skill');
 const contact = document.getElementById('contact_button');
+const contact_dropdown_buttons = document.getElementsByClassName('below_contact');
 const contact_dropdown = document.getElementById('contact_dropdown');
 const about = document.getElementById('about_button');
 const about_dropdown = document.getElementById('about_dropdown');
+const about_dropdown_buttons = document.getElementsByClassName('below_about');
+
 
 
 const bg_image_container = document.getElementById('bg_image_container');
@@ -80,6 +84,71 @@ for (let i = 0; i < dropdown_container_buttons.length; i++) {
     }
 } 
 
+function extend(top_type) {
+    console.log("extend");
+    // Get the dropdow buttons pertaining to the top-bar button clicked
+    let dropdown_buttons;
+    switch (top_type.innerText) {
+        case "Skill":
+            dropdown_buttons = skill_dropdown_buttons;
+            break;
+        case "Contact":
+            dropdown_buttons = contact_dropdown_buttons;
+            break;
+        case "About":
+            dropdown_buttons = about_dropdown_buttons;
+            break;
+    }
+
+    for (let i = 0; i < dropdown_buttons.length; i++) {
+        dropdown_buttons[i].style.display = "inline";
+        dropdown_buttons[i].style.zIndex = 9-i;
+        console.log(dropdown_buttons[i].innerText);
+        setTimeout(() => {
+            dropdown_buttons[i].animate({
+                transform: `translate(0, ${40 * (i + 1)}px)`,
+            }, {
+                easing: `cubic-bezier(0.45, 1.5, 0.25, 1)`,
+                fill: "forwards",
+                duration: 150
+            });
+        }, i * 45);
+    }
+}
+
+function retract(top_type) {
+
+    // Get the dropdow buttons pertaining to the top-bar button clicked
+    let dropdown_buttons;
+    switch (top_type.innerText) {
+        case "Skill":
+            dropdown_buttons = skill_dropdown_buttons;
+            break;
+        case "Contact":
+            dropdown_buttons = contact_dropdown_buttons;
+            break;
+        case "About":
+            dropdown_buttons = about_dropdown_buttons;
+            break;
+    }
+
+    for (let i = dropdown_buttons.length-1; i > -1; i--) {
+        dropdown_buttons[i].style.display = "inline";
+        dropdown_buttons[i].style.zIndex = 9-i;
+        console.log(dropdown_buttons[i].innerText);
+        setTimeout(() => {
+            console.log(i);
+            dropdown_buttons[i].animate({
+                transform: `translate(0, ${0}px)`,
+            }, {
+                easing: `ease-out`,
+                fill: "forwards",
+                duration: 150
+            });
+        }, (dropdown_buttons.length - i) * 30);
+    }
+}
+
 
 function dropdownButtonHover(self) {
     // Denote a button is being hovered (for release)
@@ -88,13 +157,13 @@ function dropdownButtonHover(self) {
     // Move the hovered button above the rest
     switch(self.innerText) {
         case "Skill":
-            skill_dropdown.style.zIndex = 6;
+            skill_dropdown.style.zIndex = 11;
             break;
         case "Contact":
-            contact_dropdown.style.zIndex = 6;
+            contact_dropdown.style.zIndex = 11;
             break;
         case "About":
-            about_dropdown.style.zIndex = 6;
+            about_dropdown.style.zIndex = 11;
             break;
     }
 
@@ -106,19 +175,21 @@ function dropdownButtonHover(self) {
 }
 
 function dropdownButtonUnhover(self) {
+    console.log("Bruh we uhovered");
+
     // Denote a button is being hovered (for release)
     // hover = 1;
 
     // Move the hovered button back below the rest
     switch(self.innerText) {
         case "Skill":
-            skill_dropdown.style.zIndex = 5;
+            skill_dropdown.style.zIndex = 10;
             break;
         case "Contact":
-            contact_dropdown.style.zIndex = 5;
+            contact_dropdown.style.zIndex = 10;
             break;
         case "About":
-            about_dropdown.style.zIndex = 5;
+            about_dropdown.style.zIndex = 10;
             break;
     }
 
@@ -142,15 +213,13 @@ function dropdownButtonClick (self) {
         self.style.transition = "transform 0.4s ease-out, color 0.17s ease-in, font-size 0.3s ease-in, background-color 0.17s ease-in, border-color 0.17s ease-in";
         current_dropdown_button.style.backgroundColor = "#0097a7ff";
         current_dropdown_button.style.color = "white";
-        
-        // current_dropdown_button.style.fontSize = "1em";
+        retract(current_dropdown_button);
     }
-
-    
     
     if (current_dropdown_button != self) {
         // Update the current image to reflect the button
         current_dropdown_button = self; //REPLACE WITH FUNCITON
+        extend(self);
         
         // Highlight clicked button
         self.style.transition = "transform 0.4s ease-out, color 0.17s ease-in, font-size 0.3s ease-in, background-color 0.17s ease-in, border-color 0.17s ease-in";
@@ -161,6 +230,7 @@ function dropdownButtonClick (self) {
     }
     else {
         // TO-DO: If the same main button is clicked, pack up the page
+        retract(current_dropdown_button);
         current_dropdown_button = undefined;
     }
 }
