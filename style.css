@@ -81,8 +81,8 @@ body {
             display: grid;
             align-content: center;
             justify-self: center;
-
         }   
+
             .dropdown_button {
                 /* Styling */
                 width: inherit;
@@ -99,6 +99,10 @@ body {
                 z-index: 10;
                 position: absolute;
             } 
+
+            .dropdown_button:hover {
+                box-shadow: 0px 2px 3px 0px black;
+            }
 
             .below_button {
                 /* Styling */
@@ -187,7 +191,7 @@ body {
     /* Styling */
     z-index: 5;                                                     /* This Button will stay on the top visible layer */
     height: 100%;                                                   /* Height is the same is the Container this button resides in */
-    width: 18.01vw;                                                 /* The width is fixed to be proportional to the viewport width */
+    width: 13.01vw;                                                 /* The width is fixed to be proportional to the viewport width */
     background-color: #ece3d9ff;                                  /* Button Background Color: Tofu */ 
     border: solid 3px;                                              /* Solid Border of Width = 3px */
     border-color: #ddd3c7ff #bda58bff #998064ff #c7b8a6ff;  /* Top, Right, Bottom, Left*/

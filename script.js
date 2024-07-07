@@ -66,7 +66,7 @@ function nameButtonClick (self) {
 
     }
 
-// Top Bar Functionality
+// Top Bar Functionality // 
 var current_dropdown_button;
 
 // Map window events to Functions
@@ -85,7 +85,7 @@ for (let i = 0; i < dropdown_container_buttons.length; i++) {
 } 
 
 function extend(top_type) {
-    console.log("extend");
+
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
@@ -103,18 +103,39 @@ function extend(top_type) {
     for (let i = 0; i < dropdown_buttons.length; i++) {
         dropdown_buttons[i].style.display = "inline";
         dropdown_buttons[i].style.zIndex = 9-i;
-        console.log(dropdown_buttons[i].innerText);
+
+        // Slide down
         setTimeout(() => {
             dropdown_buttons[i].animate({
                 transform: `translate(0, ${40 * (i + 1)}px)`,
             }, {
                 easing: `cubic-bezier(0.45, 1.5, 0.25, 1)`,
                 fill: "forwards",
-                duration: 400
+                duration: 500
             });
         }, i * 50);
     }
 }
+
+        // Initiate IEFE (immediately-invoked function expression) function-scope to allow "animation" to be a local variable and not be overwritten
+        // Note, don't do this unless I take the time to fix the display:none timing with animation listeners
+//         (function(button, index) {
+//             setTimeout(() => {
+//                 console.log(index);
+//                 let animation = button.animate({
+//                     transform: `translate(0, ${40 * (index + 1)}px)`
+//                 }, {
+//                     easing: `ease-out`,
+//                     fill: "forwards",
+//                     duration: 400
+//                 });
+
+//                 // Add event listener to hide the button when animation ends
+//                 animation.onfinish = () => {
+//                     button.style.display = 'inline';
+//                 };
+//             }, (index * 50));
+//         })(dropdown_buttons[i], i);
 
 function retract(top_type) {
 
@@ -135,15 +156,15 @@ function retract(top_type) {
     for (let i = dropdown_buttons.length-1; i > -1; i--) {
         dropdown_buttons[i].style.display = "inline";
         dropdown_buttons[i].style.zIndex = 9-i;
-        console.log(dropdown_buttons[i].innerText);
+
+        // Slide back up
         setTimeout(() => {
-            console.log(i);
             dropdown_buttons[i].animate({
                 transform: `translate(0, ${0}px)`,
             }, {
                 easing: `ease-out`,
                 fill: "forwards",
-                duration: 150
+                duration: 225
             });
         }, (dropdown_buttons.length - i) * 50);
     }
@@ -151,8 +172,6 @@ function retract(top_type) {
 
 
 function dropdownButtonHover(self) {
-    // Denote a button is being hovered (for release)
-    // hover = 1;
 
     // Move the hovered button above the rest
     switch(self.innerText) {
@@ -175,10 +194,6 @@ function dropdownButtonHover(self) {
 }
 
 function dropdownButtonUnhover(self) {
-    console.log("Bruh we uhovered");
-
-    // Denote a button is being hovered (for release)
-    // hover = 1;
 
     // Move the hovered button back below the rest
     switch(self.innerText) {
@@ -199,6 +214,9 @@ function dropdownButtonUnhover(self) {
         self.style.transform = `scale(1)`;
         self.style.color = "white";
         self.style.backgroundColor = "#0097a7ff";
+    } else {
+        self.style.color = "rgb(251, 229, 120)";
+        self.style.backgroundColor = "rgb(0, 185, 205)";
     }
 
     // Shrink the button back down
@@ -218,31 +236,30 @@ function dropdownButtonClick (self) {
     
     if (current_dropdown_button != self) {
         // Update the current image to reflect the button
-        current_dropdown_button = self; //REPLACE WITH FUNCITON
+        current_dropdown_button = self;
         extend(self);
         
         // Highlight clicked button
         self.style.transition = "transform 0.4s ease-out, color 0.17s ease-in, font-size 0.3s ease-in, background-color 0.17s ease-in, border-color 0.17s ease-in";
         self.style.color = "rgb(251, 229, 120)";
         self.style.backgroundColor = "rgb(0, 185, 205)";
-        // self.style.fontSize = "1.27em";
-        // self.style.borderColor = "green green green green;";
     }
     else {
-        // TO-DO: If the same main button is clicked, pack up the page
         retract(current_dropdown_button);
+        // TO-DO: If the same main button is clicked, pack up the page
+        // 💀 did I do this already 
         current_dropdown_button = undefined;
     }
 }
 
 
 
-// BG_Image Functionality
+// BG_Image Functionality // 
+
 var current_bg_image = "bg-images/sluggo.png";
 var current_bg_button;
 var hoveredButtons = new Set();
 var hovering = 0;
-
 
 window.onload = e => {
     bg_image.src="bg-images/sluggo.png";
@@ -376,7 +393,7 @@ function mainButtonHover(self) {
     self.style.transform = `scale(1.1) translate(0px, ${offset}px)`;
     // self.style.color = "rgb(73, 0, 19)";
     self.style.backgroundColor = "rgb(239, 211, 180)";
-    self.style.fontSize = "1.27em";
+    self.style.fontSize = "1.17em";
 
 
     // Change the Bg Image to reflect the button
@@ -399,7 +416,7 @@ function mainButtonUnhover (self) {
 
     // Revert Button Color -- if not clicked
     if (current_bg_button != self) {
-        self.style.transition = "transform 0.4s ease-out, color 0.8s ease-in, background-color 0.8s ease-in"
+        self.style.transition = "transform 0.4s ease-out, color 0.8s ease-in, background-color 0.4s ease-in"
         self.style.backgroundColor = "#ece3d9ff";
         self.style.color = "#0e0e0eff";
         self.style.fontSize = "1.2em";
