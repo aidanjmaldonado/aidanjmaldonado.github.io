@@ -3,12 +3,10 @@ body {
     font-family: 'Assistant', sans-serif;
     margin: 0;
     padding: 0;
+    /* padding-bottom: 2000px; */
     /* background-color: #140d22ff; OLD */
     background-color: #0e0e0eff;
 }
-
-
-
 
 /* Top Bar Container [Top Bar]*/
 
@@ -174,6 +172,7 @@ body {
     height: 70px;                                                   /* The height of the Button container */
     position: sticky;                                               /* Ensures the container is stuck to the top of the screen when scrolling */
     top: 40px;                                                      /* The sticky-top is set at 40px from the top of screen */
+
 
     /* Positioning of contents*/
     display: flex;                                                  /* Flexbox to store every Button */
