@@ -180,6 +180,9 @@ body {
     flex-wrap: nowrap;                                              /* Don't wrap if the screen gets squished */
     align-items: center;                                            /* Align vertically center */
     justify-content: center;                                        /* Align horizonetally center */
+    /* background-color: red; */
+    /* width: 500px;
+    left: 500px; */
 
 }
 
