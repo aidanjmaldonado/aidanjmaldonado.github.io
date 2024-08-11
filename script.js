@@ -32,7 +32,7 @@ const project_column_elements = document.getElementsByClassName("project_column_
 
 
 // Scroll animation
-const main_button_container_extend = 512; 
+const main_button_container_extend = 562; 
 
 // Home button functionality
 name_button.onmouseover = function() {
@@ -460,6 +460,20 @@ function mainButtonClick (self) {
             ease: "customBackOut" // Ease out effect
         });
 
+        switch (self.innerText) {
+            case "Projects":
+                showProjects();
+                break;
+            case "Research":
+                break;
+    
+            case "Publications":
+                break;
+    
+            case "Gallery":
+                break;
+        }
+
         // Update the current image to reflect the button
         changeBgImageClick(self);
         
@@ -519,46 +533,35 @@ window.onwheel = e => {
 // Projects Page
 function showProjects() {
 
-    
-
     project_column.style.display = 'grid';
-
-    // for (let i = project_column_elements.length-1; i > -1; i--) {
-    //     project_column_elements[i].style.display = "inline";
-    //     project_column_elements[i].style.zIndex = (project_column_elements.length + 2)-i;
-
-    //     // Slide back up
-    //     setTimeout(() => {
-    //         project_column_elements[i].animate({
-    //             transform: `translate(0, ${0}px)`,
-    //         }, {
-    //             easing: `ease-out`,
-    //             fill: "forwards",
-    //             duration: 0
-    //         });
-    //     }, (project_column_elements.length - i) * 50);
-    // }
-
-    // for (let i = 0; i < project_column_elements.length; i++) {
-    //     project_column_elements[i].style.display = "inline";
-    //     project_column_elements[i].style.zIndex = (project_column_elements.length + 2)-i;
-    //     console.log("Putting at z index:", (project_column_elements.length + 1)-i);
-    //     console.log( project_column_elements[i].offsetHeight, "height");
-
-    //     // Slide down
-    //     setTimeout(() => {
-    //         project_column_elements[i].animate({
-    //             // transform: `translate(0, ${project_column_elements[i].offsetHeight * (i + 1)}px)`,
-    //             transform: `translate(0, 500px)`,
-    //         }, {
-    //             easing: `cubic-bezier(0.45, 1.5, 0.25, 1)`,
-    //             fill: "forwards",
-    //             duration: 500
-    //         });
-    //     }, i * 500);
-    // }
+    console.log("hello?");
+   // Animate opacity from 0 to 1 over 2 seconds
+    project_column.animate([
+        { opacity: 0 },  // Start with opacity 0
+        { opacity: 1 }   // End with opacity 1
+    ], {
+        easing: 'ease-out',  // Smooth transition effect
+        fill: 'forwards',    // Retain final state after animation
+        duration: 1000       // 2 seconds duration
+    });
 }
 
 function recallProjects() {
+    project_column.style.display = 'grid';  // Ensure the element is visible
+    console.log("hello?");
+    
+    // Create the animation
+    const animation = project_column.animate([
+        { opacity: 1 },  // Start with opacity 1
+        { opacity: 0 }   // End with opacity 0
+    ], {
+        easing: 'ease-out',  // Smooth transition effect
+        fill: 'forwards',    // Retain final state after animation
+        duration: 2000       // 2 seconds duration
+    });
 
+    // Set the element to display: none after animation ends
+    animation.onfinish = () => {
+        project_column.style.display = 'none';
+    };
 }

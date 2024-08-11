@@ -222,7 +222,7 @@ body {
     z-index: 2;
     background-color: #0E0E0E;
     padding-top: 50px;
-    display: grid;
+    display: none;
 }
 
 .project_column_elements {
