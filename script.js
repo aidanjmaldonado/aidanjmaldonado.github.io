@@ -487,7 +487,7 @@ function mainButtonClick (self) {
     else {
         // TO-DO: If the same main button is clicked, pack up the page
         gsap.to(window, {
-            scrollTo: { y: 0, autoKill: true },
+            scrollTo: { y: 0, autoKill: false },
             duration: 2, // Duration of 1 second
             ease: "customBackOut" // Ease out effect
         });
