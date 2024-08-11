@@ -14,6 +14,8 @@ const about_dropdown_buttons = document.getElementsByClassName('below_about');
 
 
 
+
+
 const bg_image_container = document.getElementById('bg_image_container');
 const bg_image = document.getElementById('bg_image');
 const bg_void = document.getElementById('bg_void');
@@ -25,6 +27,12 @@ const research = document.getElementById('research');
 const publications = document.getElementById('publications');
 const gallery = document.getElementById('gallery');
 
+const project_column = document.getElementById('project_column');
+const project_column_elements = document.getElementsByClassName("project_column_element");
+
+
+// Scroll animation
+const main_button_container_extend = 512; 
 
 // Home button functionality
 name_button.onmouseover = function() {
@@ -63,7 +71,7 @@ function nameButtonUnhover(self) {
 
 function nameButtonClick (self) {
     // To-do
-
+    location.href='index.html'
     }
 
 // Top Bar Functionality // 
@@ -136,7 +144,7 @@ function extend(top_type) {
 //                 };
 //             }, (index * 50));
 //         })(dropdown_buttons[i], i);
-
+2
 function retract(top_type) {
 
     // Get the dropdow buttons pertaining to the top-bar button clicked
@@ -176,13 +184,13 @@ function dropdownButtonHover(self) {
     // Move the hovered button above the rest
     switch(self.innerText) {
         case "Skills":
-            skill_dropdown.style.zIndex = 11;
+            skill_dropdown.style.zIndex = 70;
             break;
         case "Contact":
-            contact_dropdown.style.zIndex = 11;
+            contact_dropdown.style.zIndex = 70;
             break;
         case "About":
-            about_dropdown.style.zIndex = 11;
+            about_dropdown.style.zIndex = 70;
             break;
     }
 
@@ -198,13 +206,13 @@ function dropdownButtonUnhover(self) {
     // Move the hovered button back below the rest
     switch(self.innerText) {
         case "Skills":
-            skill_dropdown.style.zIndex = 10;
+            skill_dropdown.style.zIndex = 69;
             break;
         case "Contact":
-            contact_dropdown.style.zIndex = 10;
+            contact_dropdown.style.zIndex = 69;
             break;
         case "About":
-            about_dropdown.style.zIndex = 10;
+            about_dropdown.style.zIndex = 69;
             break;
     }
 
@@ -362,6 +370,9 @@ function releaseBgImage() {
 // Main_Buttons Functionality
 var offset = -10;
 
+CustomEase.create("customBackOut", "0.24, 1.1, 0.44, 1");
+
+
 // Map window events to Functions
 for (let i = 0; i < main_buttons.length; i++) {
     main_buttons[i].onmouseover = function() {
@@ -380,13 +391,11 @@ for (let i = 0; i < main_buttons.length; i++) {
 
 function mainButtonHover(self) {
     // Denote a button is being hovered (for release)
+
     hover = 1;
 
     // Move the hovered button above the rest
-    self.style.zIndex = 6;
-
-    // Apply CSS transition for smooth color change and transformation
-    // self.style.transition = "transform 0.4s ease-out, color 0.3s ease";
+    self.style.zIndex = 60;
 
     // Animate the button to grow and set text color to white
     self.style.transition = "transform 0.4s ease-out, color 0.17s ease-in, font-size 0.3s ease-in, background-color 0.17s ease-in";
@@ -402,7 +411,6 @@ function mainButtonHover(self) {
     } else {
         // Cancel any ongoing animations on the background image
         let bg_animation = bg_image.getAnimations();
-        // bg_animation.forEach(animation => animation.cancel()); Do I really want this?
         bg_image.src = current_bg_image;
     }
 }
@@ -411,7 +419,7 @@ function mainButtonHover(self) {
 function mainButtonUnhover (self) {
 
     // Move the button back down
-    self.style.zIndex = 5;
+    self.style.zIndex = 50;
 
 
     // Revert Button Color -- if not clicked
@@ -441,9 +449,17 @@ function mainButtonClick (self) {
         current_bg_button.style.fontSize = "1.2em";
     }
 
+
     
     
     if (current_bg_button != self) {
+        // Scroll to show options
+        gsap.to(window, {
+            scrollTo: { y: main_button_container_extend, autoKill: true },
+            duration: 2, // Duration of 1 second
+            ease: "customBackOut" // Ease out effect
+        });
+
         // Update the current image to reflect the button
         changeBgImageClick(self);
         
@@ -456,6 +472,25 @@ function mainButtonClick (self) {
     }
     else {
         // TO-DO: If the same main button is clicked, pack up the page
+        gsap.to(window, {
+            scrollTo: { y: 0, autoKill: true },
+            duration: 2, // Duration of 1 second
+            ease: "customBackOut" // Ease out effect
+        });
+        switch (self.innerText) {
+            case "Projects":
+                recallProjects();
+                break;
+            case "Research":
+                break;
+    
+            case "Publications":
+                break;
+    
+            case "Gallery":
+                break;
+        }
+
         current_bg_button = undefined;
     }
 }
@@ -468,14 +503,62 @@ window.onwheel = e => {
     if (depth > 512) {
         offset = 5;
         main_container.style.height='40px';
-        bg_image.style.visibility='hidden';
+        // bg_image.style.visibility='hidden';
     } else if (depth == 0) {
         offset = -10;
         main_container.style.height='70px';
     } else {
-        bg_image.style.visibility='visible';
         new_main_button_height = 70 - (depth/(256/15));
         offset = -10 - (depth/(-512/15));
         main_container.style.height=`${new_main_button_height}px`;
+        // bg_image.style.visibility='visible';
     }
+}
+
+
+// Projects Page
+function showProjects() {
+
+    
+
+    project_column.style.display = 'grid';
+
+    // for (let i = project_column_elements.length-1; i > -1; i--) {
+    //     project_column_elements[i].style.display = "inline";
+    //     project_column_elements[i].style.zIndex = (project_column_elements.length + 2)-i;
+
+    //     // Slide back up
+    //     setTimeout(() => {
+    //         project_column_elements[i].animate({
+    //             transform: `translate(0, ${0}px)`,
+    //         }, {
+    //             easing: `ease-out`,
+    //             fill: "forwards",
+    //             duration: 0
+    //         });
+    //     }, (project_column_elements.length - i) * 50);
+    // }
+
+    // for (let i = 0; i < project_column_elements.length; i++) {
+    //     project_column_elements[i].style.display = "inline";
+    //     project_column_elements[i].style.zIndex = (project_column_elements.length + 2)-i;
+    //     console.log("Putting at z index:", (project_column_elements.length + 1)-i);
+    //     console.log( project_column_elements[i].offsetHeight, "height");
+
+    //     // Slide down
+    //     setTimeout(() => {
+    //         project_column_elements[i].animate({
+    //             // transform: `translate(0, ${project_column_elements[i].offsetHeight * (i + 1)}px)`,
+    //             transform: `translate(0, 500px)`,
+    //         }, {
+    //             easing: `cubic-bezier(0.45, 1.5, 0.25, 1)`,
+    //             fill: "forwards",
+    //             duration: 500
+    //         });
+    //     }, i * 500);
+    // }
+}
+
+function recallProjects() {
+
 }

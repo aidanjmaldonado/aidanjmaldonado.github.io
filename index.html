@@ -10,6 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Julius+Sans+One&display=swap" rel="stylesheet">
+
+    <!-- Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/CustomEase.min.js"></script>
+    
+    
+    
+
 </head>
 
 
@@ -18,7 +27,7 @@
     <nav id="top_bar_container">
 
         <!-- My Name (top left) -->
-        <button class="top_bar" id="name" onclick="window.open('https://www.linkedin.com/in/aidan-maldonado-597b1524b/', '_blank');">Aidan Maldonado</button>
+        <button class="top_bar" id="name">Aidan Maldonado</button>
 
         <!-- Dropdowns -->
         <div class="top_bar" id="dropdown_container">
@@ -82,61 +91,59 @@
     <!-- Void to space Main Buttons-->
     <div id="bg_void">
     </div> 
-        
 
+    
     <!-- Main Buttons -->
     <nav id="main_buttons_container">
-
+        
         <!-- Projects -->
         <button class="main_button" id="projects">Projects</button>
-
+        
         <!-- Research -->
         <button class="main_button" id="research">Research</button>
-
+        
         <!-- Publications -->
         <button class="main_button" id="publications">Publications</button>
-
+        
         <!-- Gallery -->
         <button class="main_button" id="gallery">Gallery</button>
         
     </nav>
+    
 
-    <div id="nextpage" style="height: 472px; background-color: #0e0e0eff; z-index: 10; margin-top: 0px;"></div> -->
+        <!-- Projects -->
+    <nav id="project_column">
 
-    <!-- Projects -->
-    <div id="project_column">
+        <img class="project_column_element project" src="Projects/GLM.svg">
 
-        <img class="project" src="Projects/GLM.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/PGM.svg">
 
-        <img class="project" src="Projects/PGM.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/STEG.svg">
 
-        <img class="project" src="Projects/STEG.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/TTT.svg">
 
-        <img class="project" src="Projects/TTT.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/CALC.svg">
 
-        <img class="project" src="Projects/CALC.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/FIFT.svg">
 
-        <img class="project" src="Projects/FIFT.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
+        <img class="project_column_element project" src="Projects/DSA.svg">
 
-        <img class="project" src="Projects/DSA.svg">
+        <img class="project_column_element project_spacer" src="Projects/spacer.svg">
 
-        <img class="project_spacer" src="Projects/spacer.svg">
-
-
-    </div>
-
+    </nav>
+    
     <script src="script.js"></script>
 
 
