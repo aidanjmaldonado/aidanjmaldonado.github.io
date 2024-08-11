@@ -89,7 +89,7 @@ function extend(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "Skill":
+        case "Skills":
             dropdown_buttons = skill_dropdown_buttons;
             break;
         case "Contact":
@@ -142,7 +142,7 @@ function retract(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "Skill":
+        case "Skills":
             dropdown_buttons = skill_dropdown_buttons;
             break;
         case "Contact":
@@ -175,7 +175,7 @@ function dropdownButtonHover(self) {
 
     // Move the hovered button above the rest
     switch(self.innerText) {
-        case "Skill":
+        case "Skills":
             skill_dropdown.style.zIndex = 11;
             break;
         case "Contact":
@@ -197,7 +197,7 @@ function dropdownButtonUnhover(self) {
 
     // Move the hovered button back below the rest
     switch(self.innerText) {
-        case "Skill":
+        case "Skills":
             skill_dropdown.style.zIndex = 10;
             break;
         case "Contact":
