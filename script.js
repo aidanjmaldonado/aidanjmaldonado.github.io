@@ -468,10 +468,12 @@ window.onwheel = e => {
     if (depth > 512) {
         offset = 5;
         main_container.style.height='40px';
+        bg_image.style.visibility='hidden';
     } else if (depth == 0) {
         offset = -10;
         main_container.style.height='70px';
     } else {
+        bg_image.style.visibility='visible';
         new_main_button_height = 70 - (depth/(256/15));
         offset = -10 - (depth/(-512/15));
         main_container.style.height=`${new_main_button_height}px`;
