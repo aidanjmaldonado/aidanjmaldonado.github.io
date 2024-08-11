@@ -227,7 +227,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-    width: 1300px;
+    width: 70vw;
 }
 
 .project_spacer {
@@ -235,5 +235,5 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-    width: 1600px;
+    width: 90vw;
 }
