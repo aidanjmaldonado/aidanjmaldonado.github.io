@@ -565,3 +565,8 @@ function recallProjects() {
         project_column.style.display = 'none';
     };
 }
+
+// Gallery Redirect
+  document.getElementById("gallery").addEventListener("click", function() {
+    window.open("https://aidanjmaldonado.github.io/aidanjmphotos.github.io/", "_blank");
+  });
