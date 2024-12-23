@@ -2,7 +2,7 @@ const top_bar_container = document.getElementById('top_bar_container');
 const top_bars = document.getElementsByClassName("top_bar");
 const name_button = document.getElementById('name');
 const dropdown_container_buttons = document.getElementsByClassName("dropdown_button");
-const careers = document.getElementById('career_button');
+const career = document.getElementById('career_button');
 const career_dropdown = document.getElementById('career_dropdown');
 const career_dropdown_buttons = document.getElementsByClassName('below_career');
 const contact = document.getElementById('contact_button');
@@ -97,7 +97,7 @@ function extend(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "proff":
+        case "Career":
             dropdown_buttons = career_dropdown_buttons;
             break;
         case "Contact":
@@ -150,7 +150,7 @@ function retract(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "proff":
+        case "Career":
             dropdown_buttons = career_dropdown_buttons;
             break;
         case "Contact":
