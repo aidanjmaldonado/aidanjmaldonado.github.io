@@ -2,9 +2,9 @@ const top_bar_container = document.getElementById('top_bar_container');
 const top_bars = document.getElementsByClassName("top_bar");
 const name_button = document.getElementById('name');
 const dropdown_container_buttons = document.getElementsByClassName("dropdown_button");
-const skills = document.getElementById('skill_button');
-const skill_dropdown = document.getElementById('skill_dropdown');
-const skill_dropdown_buttons = document.getElementsByClassName('below_skill');
+const proff = document.getElementById('professional_button');
+const professional_dropdown = document.getElementById('professional_dropdown');
+const professional_dropdown_buttons = document.getElementsByClassName('below_professional');
 const contact = document.getElementById('contact_button');
 const contact_dropdown_buttons = document.getElementsByClassName('below_contact');
 const contact_dropdown = document.getElementById('contact_dropdown');
@@ -97,8 +97,8 @@ function extend(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "Skills":
-            dropdown_buttons = skill_dropdown_buttons;
+        case "proff":
+            dropdown_buttons = professional_dropdown_buttons;
             break;
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
@@ -150,8 +150,8 @@ function retract(top_type) {
     // Get the dropdow buttons pertaining to the top-bar button clicked
     let dropdown_buttons;
     switch (top_type.innerText) {
-        case "Skills":
-            dropdown_buttons = skill_dropdown_buttons;
+        case "proff":
+            dropdown_buttons = professional_dropdown_buttons;
             break;
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
@@ -183,8 +183,8 @@ function dropdownButtonHover(self) {
 
     // Move the hovered button above the rest
     switch(self.innerText) {
-        case "Skills":
-            skill_dropdown.style.zIndex = 70;
+        case "proff":
+            professional_dropdown.style.zIndex = 70;
             break;
         case "Contact":
             contact_dropdown.style.zIndex = 70;
@@ -205,8 +205,8 @@ function dropdownButtonUnhover(self) {
 
     // Move the hovered button back below the rest
     switch(self.innerText) {
-        case "Skills":
-            skill_dropdown.style.zIndex = 69;
+        case "proff":
+            professional_dropdown.style.zIndex = 69;
             break;
         case "Contact":
             contact_dropdown.style.zIndex = 69;
