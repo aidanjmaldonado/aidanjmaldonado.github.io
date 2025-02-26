@@ -534,7 +534,6 @@ window.onwheel = e => {
 function showProjects() {
 
     project_column.style.display = 'grid';
-    console.log("hello?");
    // Animate opacity from 0 to 1 over 2 seconds
     project_column.animate([
         { opacity: 0 },  // Start with opacity 0
@@ -568,10 +567,20 @@ function recallProjects() {
 
 // Gallery Redirect
 document.getElementById("gallery").addEventListener("click", function() {
-    window.open("https://aidanjmaldonado.github.io/aidanjmphotos.github.io/", "_blank");
+    if (window.top != window) {
+        window.top.location = "index.html";
+    } else {
+        window.location.href = "index.html";
+    }
+    window.open("https://aidanjmaldonado.github.io/aidanjmphotos.github.io/", "_self");
 });
 
 // Publications Redirect
 document.getElementById("publications").addEventListener("click", function() {
-    window,open("https://aidanjmaldonado.github.io/writing/index.html", "_blank");
+    if (window.top != window) {
+        window.top.location = "index.html";
+    } else {
+        window.location.href = "index.html";
+    }
+    window.open("https://aidanjmaldonado.github.io/writing/index.html", "_self");
 });
