@@ -183,7 +183,7 @@ function dropdownButtonHover(self) {
 
     // Move the hovered button above the rest
     switch(self.innerText) {
-        case "proff":
+        case "Career":
             career_dropdown.style.zIndex = 70;
             break;
         case "Contact":
@@ -205,7 +205,7 @@ function dropdownButtonUnhover(self) {
 
     // Move the hovered button back below the rest
     switch(self.innerText) {
-        case "proff":
+        case "Career":
             career_dropdown.style.zIndex = 69;
             break;
         case "Contact":
