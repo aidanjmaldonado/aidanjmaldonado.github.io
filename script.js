@@ -567,6 +567,11 @@ function recallProjects() {
 }
 
 // Gallery Redirect
-  document.getElementById("gallery").addEventListener("click", function() {
+document.getElementById("gallery").addEventListener("click", function() {
     window.open("https://aidanjmaldonado.github.io/aidanjmphotos.github.io/", "_blank");
-  });
+});
+
+// Publications Redirect
+document.getElementById("publications").addEventListener("click", function() {
+    window,open("https://aidanjmaldonado.github.io/writing/index.html", "_blank");
+});
