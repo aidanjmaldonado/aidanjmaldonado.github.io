@@ -103,7 +103,7 @@ function extend(top_type) {
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
             break;
-        case "About":
+        case "About Me":
             dropdown_buttons = about_dropdown_buttons;
             break;
     }
@@ -156,7 +156,7 @@ function retract(top_type) {
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
             break;
-        case "About":
+        case "About Me":
             dropdown_buttons = about_dropdown_buttons;
             break;
     }
@@ -189,7 +189,7 @@ function dropdownButtonHover(self) {
         case "Contact":
             contact_dropdown.style.zIndex = 70;
             break;
-        case "About":
+        case "About Me":
             about_dropdown.style.zIndex = 70;
             break;
     }
@@ -211,7 +211,7 @@ function dropdownButtonUnhover(self) {
         case "Contact":
             contact_dropdown.style.zIndex = 69;
             break;
-        case "About":
+        case "About Me":
             about_dropdown.style.zIndex = 69;
             break;
     }
