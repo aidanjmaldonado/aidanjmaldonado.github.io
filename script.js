@@ -103,9 +103,9 @@ function extend(top_type) {
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
             break;
-        case "About Me":
-            dropdown_buttons = about_dropdown_buttons;
-            break;
+        // case "About Me":
+        //     dropdown_buttons = about_dropdown_buttons;
+        //     break;
     }
 
     for (let i = 0; i < dropdown_buttons.length; i++) {
@@ -156,9 +156,9 @@ function retract(top_type) {
         case "Contact":
             dropdown_buttons = contact_dropdown_buttons;
             break;
-        case "About Me":
-            dropdown_buttons = about_dropdown_buttons;
-            break;
+        // case "About Me":
+        //     dropdown_buttons = about_dropdown_buttons;
+        //     break;
     }
 
     for (let i = dropdown_buttons.length-1; i > -1; i--) {
@@ -189,9 +189,9 @@ function dropdownButtonHover(self) {
         case "Contact":
             contact_dropdown.style.zIndex = 70;
             break;
-        case "About Me":
-            about_dropdown.style.zIndex = 70;
-            break;
+        // case "About Me":
+        //     about_dropdown.style.zIndex = 70;
+        //     break;
     }
 
     // Animate the button to grow and set text color to white
@@ -211,9 +211,9 @@ function dropdownButtonUnhover(self) {
         case "Contact":
             contact_dropdown.style.zIndex = 69;
             break;
-        case "About Me":
-            about_dropdown.style.zIndex = 69;
-            break;
+        // case "About Me":
+        //     about_dropdown.style.zIndex = 69;
+        //     break;
     }
 
     if (self != current_dropdown_button) {
@@ -583,4 +583,8 @@ document.getElementById("publications").addEventListener("click", function() {
         window.location.href = "index.html";
     }
     window.open("https://aidanjmaldonado.github.io/writing/index.html", "_self");
+});
+
+document.getElementById("about_button").addEventListener("click", function () {
+    window.open("https://www.instagram.com/reel/DJ7e1AzyveA/?igsh=NTc4MTIwNjQ2YQ%3D%3D", "_blank");
 });
