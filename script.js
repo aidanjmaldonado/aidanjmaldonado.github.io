@@ -584,19 +584,3 @@ document.getElementById("publications").addEventListener("click", function() {
     }
     window.open("https://aidanjmaldonado.github.io/writing/index.html", "_self");
 });
-
-// About Me
-document.getElementById("about_button").addEventListener("click", function () {
-    document.getElementById("about_modal").style.display = "flex";
-});
-
-// Close modal function
-function closeAboutModal() {
-    document.getElementById("about_modal").style.display = "none";
-}
-
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-        closeAboutModal();
-    }
-});
